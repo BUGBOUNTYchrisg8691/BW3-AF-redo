@@ -186,6 +186,7 @@ h2 {
 .class-list {
   display: flex;
   flex-wrap: wrap;
+  justify-content: flex-start;
 }
 
 h2 {
@@ -204,7 +205,7 @@ h2 {
 
 .instructor-class {
   width: 30%;
-  margin: auto;
+  margin: 20px;
 }
 
 .user-heading {
