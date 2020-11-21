@@ -1,33 +1,71 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import AxiosWithAuth from "../utils/AxiosWithAuth";
 
 export default function Class({ cls }) {
+  const [attendees, setAttendees] = useState([]);
+
+  useEffect(() => {
+    AxiosWithAuth()
+      .get(`/api/classes/${cls.id}/attendees`)
+      .then((res) => {
+        console.log("Fetch Attendees Successful ==>> ", res);
+        setAttendees(
+          res.data.map((attendee) => {
+            return attendee.username;
+          })
+        );
+      })
+      .catch((err) => {
+        console.log("Fetch Attendees Failed ==>> ", err);
+      });
+  }, []);
+
   const handleEnroll = (e) => {
     e.preventDefault();
     const { id } = JSON.parse(localStorage.getItem("user"));
-    // console.log(id);
     AxiosWithAuth()
-      .post(`/api/classes/${cls.id}/attendees`, { user_id: id, id: cls.id })
+      .post(`/api/classes/${cls.id}/attendees`, { user_id: id })
       .then((res) => {
         console.log("Enrollment Successful ==>> ", res);
       })
       .catch((err) => {
         console.log("Enrollment Failed ==>> ", err);
       });
+  };
+
+  const handleUnenroll = (e) => {
+    e.preventDefault();
+    const { id } = JSON.parse(localStorage.getItem("user"));
     AxiosWithAuth()
-      .get(`/api/classes/${cls.id}/attendees`)
+      .delete(`/api/classes/${cls.id}/attendees`, { id: id })
       .then((res) => {
-        console.log("Fetch Attendees Successful ==>> ", res);
+        console.log("Unenrollment Successful ==>> ", res);
       })
       .catch((err) => {
-        console.log("Fetch Attendees Failed ==>> ", err);
+        console.log("Unenrollment Failed ==>> ", err);
       });
   };
 
   return (
     <div>
+      {console.log(attendees)}
       <form>
-        <button onClick={handleEnroll}>Enroll</button>
+        {/* {attendees.includes(
+          JSON.parse(localStorage.getItem("user")).message.split(" ")[
+            JSON.parse(localStorage.getItem("user")).message.split(" ").length -
+              1
+          ]
+        ) ? (
+          <button onClick={handleUnenroll}>Unenroll</button>
+        ) : (
+          <button onClick={handleEnroll}>Enroll</button>
+        )} */}
+        {attendees.includes(
+          JSON.parse(localStorage.getItem("user")).message.split(" ")[
+            JSON.parse(localStorage.getItem("user")).message.split(" ").length -
+              1
+          ]
+        ) && <button onClick={handleEnroll}>Enroll</button>}
         <label>Class Name</label>
         <h3>{cls.class_name}</h3>
         <label>Instructor</label>
@@ -44,6 +82,8 @@ export default function Class({ cls }) {
         <p>{cls.intensity}</p>
         <label>Max Class Size</label>
         <p>{cls.max_size}</p>
+        <label>Spots Left</label>
+        <p>{cls.max_size - attendees.length}</p>
       </form>
     </div>
   );
