@@ -1,12 +1,12 @@
 import Axios from "axios";
 
-// import { BASE_URL } from "../constants";
-import { LOCAL } from "../constants";
+import { BASE_URL } from "../constants";
+// import { LOCAL } from "../constants";
 
 function AxiosWithHeaders() {
   return Axios.create({
-    baseURL: LOCAL,
-    // baseURL: `https://cors-anywhere.herokuapp.com/${BASE_URL}`,
+    // baseURL: LOCAL,
+    baseURL: `https://cors-anywhere.herokuapp.com/${BASE_URL}`,
     // baseURL: BASE_URL,
     headers: {
       "Access-Control-Allow-Origin": "*",
