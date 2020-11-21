@@ -1,9 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+
 import AxiosWithAuth from "../utils/AxiosWithAuth";
+import { fetchClasses } from "../store/actions/classesActions";
 
 export default function InstructorClass({ cls }) {
   const [formVals, setFormVals] = useState(cls);
   const [isEditing, setIsEditing] = useState(false);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchClasses());
+  }, [isEditing]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
