@@ -1,6 +1,7 @@
 import Axios from "axios";
 
-import { BASE_URL /*LOCAL*/ } from "../constants";
+import { BASE_URL } from "../constants";
+// import { LOCAL } from "../constants";
 
 export default function AxiosWithAuth() {
   const token = JSON.parse(localStorage.getItem("user")).token;

@@ -59,7 +59,7 @@ export default function Class({ cls }) {
         ) : (
           <button onClick={handleEnroll}>Enroll</button>
         )} */}
-        {attendees.includes(
+        {!attendees.includes(
           JSON.parse(localStorage.getItem("user")).message.split(" ")[
             JSON.parse(localStorage.getItem("user")).message.split(" ").length -
               1

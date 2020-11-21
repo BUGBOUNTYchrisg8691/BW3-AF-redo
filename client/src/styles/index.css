@@ -65,7 +65,8 @@ table {
 
 .header-container {
   display: flex;
-  background-color: #ffb8c7;
+  /* background-color: #ffb8c7; */
+  background-color: #ffc4c4;
 }
 
 .header-nav {
