@@ -16,7 +16,7 @@ export default function ClassForm({ classEdit }) {
 
   useEffect(() => {
     if (classEdit) {
-      delete classEdit.instructor;
+      // delete classEdit.instructor;
       setFormVals(classEdit);
     }
   }, []);
@@ -27,7 +27,7 @@ export default function ClassForm({ classEdit }) {
     if (classEdit) {
       const newClass = {
         ...formVals,
-        instructor_id: id,
+        // instructor_id: id,
         intensity: Number(formVals.intensity),
         max_size: Number(formVals.max_size),
       };
