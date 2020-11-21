@@ -59,7 +59,7 @@ export default function InstructorClass({ cls }) {
             onChange={handleChange}
           />
         ) : (
-          <h3>{cls.name}</h3>
+          <h3>{cls.class_name}</h3>
         )}
         <label>Type</label>
         {isEditing ? (
