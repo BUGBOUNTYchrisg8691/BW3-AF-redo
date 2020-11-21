@@ -1,16 +1,9 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import AxiosWithAuth from "../utils/AxiosWithAuth";
 
 export default function InstructorClass({ cls }) {
   const [formVals, setFormVals] = useState(cls);
   const [isEditing, setIsEditing] = useState(false);
-  // const nameRef = useRef();
-  // const typeRef = useRef();
-  // const startTimeRef = useRef()
-  // const endTimeRef = useRef();
-  // const intensityRef = useRef();
-  // const locationRef = useRef();
-  // const maxClassSizeRef = useRef()
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -149,63 +142,6 @@ export default function InstructorClass({ cls }) {
         )}
         <button>Submit</button>
       </form>
-      {/* {JSON.stringify(cls)} */}
     </div>
   );
 }
-
-// <form className="add-form" onSubmit={handleSubmit}>
-//   <label>Class Name</label>
-//   <input
-//     type="text"
-//     name="class_name"
-//     value={formVals.class_name}
-//     onChange={handleChange}
-//   />
-//   <label>Type</label>
-//   <input
-//     type="text"
-//     name="type"
-//     value={formVals.type}
-//     onChange={handleChange}
-//   />
-//   <label>Start Time</label>
-//   <input
-//     type="time"
-//     name="start_time"
-//     value={formVals.start_time}
-//     onChange={handleChange}
-//   />
-//   <label>End Time</label>
-//   <input
-//     type="time"
-//     name="end_time"
-//     value={formVals.end_time}
-//     onChange={handleChange}
-//   />
-//   <label>Intensity</label>
-//   <input
-//     type="number"
-//     name="intensity"
-//     value={formVals.intensity}
-//     onChange={handleChange}
-//     min="0"
-//     max="10"
-//   />
-//   <label>Location</label>
-//   <input
-//     type="text"
-//     name="location"
-//     value={formVals.location}
-//     onChange={handleChange}
-//   />
-//   <label>Max Class Size</label>
-//   <input
-//     type="number"
-//     name="max_size"
-//     value={formVals.max_size}
-//     onChange={handleChange}
-//     min="0"
-//   />
-//   <button>Submit</button>
-// </form>
