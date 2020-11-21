@@ -14,3 +14,15 @@ export function fetchClasses() {
       });
   };
 }
+
+export function searchClasses(search) {
+  return (dispatch) => {
+    dispatch({ type: types.SEARCH_CLASSES, payload: search });
+  };
+}
+
+export function searchClassesTime(search) {
+  return (dispatch) => {
+    dispatch({ type: types.SEARCH_CLASSES_TIME, payload: search });
+  };
+}
