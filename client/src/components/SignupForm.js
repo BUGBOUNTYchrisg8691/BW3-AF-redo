@@ -29,7 +29,7 @@ export default function SignupForm() {
       .catch((err) => {
         console.log("Register Failed ==>> ", err);
       });
-    login(formVals)
+    login(newUser)
       .then((res) => {
         console.log("Login Successful ==>> ", res);
         localStorage.setItem("user", JSON.stringify(res.data));

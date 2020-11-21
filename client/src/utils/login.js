@@ -1,10 +1,8 @@
 import AxiosWithHeaders from "./AxiosWithHeaders";
 
-import { LOCAL } from "../constants";
-
 function login(newUser) {
   return AxiosWithHeaders()
-    .post(`${LOCAL}/api/auth/login`, newUser)
+    .post("/api/auth/login", newUser)
     .then((res) => {
       return res;
     })

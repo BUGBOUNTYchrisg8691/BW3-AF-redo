@@ -1,10 +1,12 @@
 import Axios from "axios";
 
+import { BASE_URL, LOCAL } from "../constants";
+
 export default function AxiosWithAuth() {
   const token = JSON.parse(localStorage.getItem("user")).token;
   return Axios.create({
-    baseURL: "http://localhost:5000",
-    // baseURL: "https://covid-bod.herokuapp.com",
+    baseURL: LOCAL,
+    // baseURL: BASE_URL,
     headers: {
       Authorization: `${token}`,
       "Access-Control-Allow-Origin": "*",
