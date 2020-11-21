@@ -87,6 +87,31 @@ a {
   font-weight: bold;
 }
 
+form {
+  width: 40%;
+  border: 3px solid pink;
+  border-radius: 10px;
+  background-color: whitesmoke;
+  margin: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  border: none;
+  border-bottom: 2px solid pink;
+  background-color: papayawhip;
+  margin: 2px;
+  padding: 3px;
+}
+
+label {
+  margin: 3px;
+  color: #15253d;
+  font-weight: bold;
+}
+
 @media (max-width: 800px) {
   .header-container {
     flex-direction: column;
