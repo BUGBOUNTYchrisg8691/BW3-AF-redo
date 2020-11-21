@@ -5,7 +5,7 @@ import ClassList from "./ClassList";
 export default function Student() {
   return (
     <div>
-      Student
+      {/* Student */}
       {/* search component */}
       {/* class list component */}
       <ClassList />

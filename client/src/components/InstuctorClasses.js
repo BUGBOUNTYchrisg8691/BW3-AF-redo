@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { /*useState,*/ useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import AxiosWithAuth from "../utils/AxiosWithAuth";
+// import AxiosWithAuth from "../utils/AxiosWithAuth";
 import { fetchInstructorClasses } from "../store/actions/instructorActions";
 
 import InstructorClass from "./InstructorClass";

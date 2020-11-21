@@ -6,7 +6,7 @@ import InstructorClasses from "./InstuctorClasses";
 export default function Instructor() {
   return (
     <div>
-      Instructor
+      {/* Instructor */}
       {/* classlist compoent with ability to edit/remove */}
       <InstructorClasses />
       {/* add class component */}

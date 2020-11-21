@@ -33,22 +33,21 @@ export default function Class({ cls }) {
       });
   };
 
-  const handleUnenroll = (e) => {
-    e.preventDefault();
-    const { id } = JSON.parse(localStorage.getItem("user"));
-    AxiosWithAuth()
-      .delete(`/api/classes/${cls.id}/attendees`, { id: id })
-      .then((res) => {
-        console.log("Unenrollment Successful ==>> ", res);
-      })
-      .catch((err) => {
-        console.log("Unenrollment Failed ==>> ", err);
-      });
-  };
+  // const handleUnenroll = (e) => {
+  //   e.preventDefault();
+  //   const { id } = JSON.parse(localStorage.getItem("user"));
+  //   AxiosWithAuth()
+  //     .delete(`/api/classes/${cls.id}/attendees`, { id: id })
+  //     .then((res) => {
+  //       console.log("Unenrollment Successful ==>> ", res);
+  //     })
+  //     .catch((err) => {
+  //       console.log("Unenrollment Failed ==>> ", err);
+  //     });
+  // };
 
   return (
     <div>
-      {console.log(attendees)}
       <form>
         {/* {attendees.includes(
           JSON.parse(localStorage.getItem("user")).message.split(" ")[
