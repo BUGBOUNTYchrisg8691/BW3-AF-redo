@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 
 import AxiosWithAuth from "../utils/AxiosWithAuth";
 
+import InstructorClass from "./InstructorClass";
+
 export default function InstuctorClasses() {
   const [classes, setClasses] = useState([]);
 
@@ -18,5 +20,12 @@ export default function InstuctorClasses() {
       });
   }, []);
 
-  return <div>{JSON.stringify(classes)}</div>;
+  return (
+    <div>
+      {classes.length > 0 &&
+        classes.map((cls) => {
+          return <InstructorClass cls={cls} />;
+        })}
+    </div>
+  );
 }

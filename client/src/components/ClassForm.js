@@ -11,51 +11,27 @@ const initialFormVals = {
   max_size: "",
 };
 
-export default function ClassForm({ classEdit }) {
+export default function ClassForm() {
   const [formVals, setFormVals] = useState(initialFormVals);
-
-  useEffect(() => {
-    if (classEdit) {
-      // delete classEdit.instructor;
-      setFormVals(classEdit);
-    }
-  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const id = JSON.parse(localStorage.getItem("user")).id;
-    if (classEdit) {
-      const newClass = {
-        ...formVals,
-        // instructor_id: id,
-        intensity: Number(formVals.intensity),
-        max_size: Number(formVals.max_size),
-      };
-      AxiosWithAuth()
-        .post(`/api/classes/${formVals.id}`, newClass)
-        .then((res) => {
-          console.log("Add Class Successful ==>> ", res);
-        })
-        .catch((err) => {
-          console.log("Add Class Failed ==>> ", err);
-        });
-    } else {
-      const newClass = {
-        ...formVals,
-        instructor_id: id,
-        enrolled: 0,
-        intensity: Number(formVals.intensity),
-        max_size: Number(formVals.max_size),
-      };
-      AxiosWithAuth()
-        .post("/api/classes", newClass)
-        .then((res) => {
-          console.log("Add Class Successful ==>> ", res);
-        })
-        .catch((err) => {
-          console.log("Add Class Failed ==>> ", err);
-        });
-    }
+    const newClass = {
+      ...formVals,
+      instructor_id: id,
+      enrolled: 0,
+      intensity: Number(formVals.intensity),
+      max_size: Number(formVals.max_size),
+    };
+    AxiosWithAuth()
+      .post("/api/classes", newClass)
+      .then((res) => {
+        console.log("Add Class Successful ==>> ", res);
+      })
+      .catch((err) => {
+        console.log("Add Class Failed ==>> ", err);
+      });
     setFormVals(initialFormVals);
   };
 
