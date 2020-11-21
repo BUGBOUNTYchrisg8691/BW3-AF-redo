@@ -47,7 +47,7 @@ export default function InstructorClass({ cls }) {
   };
 
   return (
-    <div>
+    <div className="instructor-class">
       <form onSubmit={handleSubmit}>
         <button onClick={handleDelete}>X</button>
         <label>Class Name</label>
@@ -59,7 +59,18 @@ export default function InstructorClass({ cls }) {
             onChange={handleChange}
           />
         ) : (
-          <h3>{cls.class_name}</h3>
+          <h5>{cls.class_name}</h5>
+        )}
+        <label>Location</label>
+        {isEditing ? (
+          <input
+            type="text"
+            name="location"
+            value={formVals.location}
+            onChange={handleChange}
+          />
+        ) : (
+          <h5>{cls.location}</h5>
         )}
         <label>Type</label>
         {isEditing ? (
@@ -73,17 +84,6 @@ export default function InstructorClass({ cls }) {
           <>
             <h5>{cls.type}</h5>
           </>
-        )}
-        <label>Location</label>
-        {isEditing ? (
-          <input
-            type="text"
-            name="location"
-            value={formVals.location}
-            onChange={handleChange}
-          />
-        ) : (
-          <h4>{cls.location}</h4>
         )}
         <label>Start Time</label>
         {isEditing ? (

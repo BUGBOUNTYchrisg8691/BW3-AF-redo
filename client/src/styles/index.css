@@ -1,6 +1,6 @@
 /* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
+  v2.0 | 20110126
+  License: none (public domain)
 */
 
 html, body, div, span, applet, object, iframe,
@@ -51,6 +51,19 @@ table {
   box-sizing: border-box;
 }
 
+/* fonts */
+* {
+    font-family: 'Domine', serif;
+}
+
+h2, h3, h4 {
+  font-family: 'Lobster', cursive;
+}
+
+button {
+  font-family: 'Big Shoulders Stencil Display', cursive;
+}
+
 .app-container {
   width: 99.9%;
 }
@@ -89,7 +102,7 @@ a {
 }
 
 form {
-  width: 40%;
+  width: 100%;
   border: 3px solid pink;
   border-radius: 10px;
   background-color: whitesmoke;
@@ -113,6 +126,98 @@ label {
   font-weight: bold;
 }
 
+.signin-signup {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
+
+h2 {
+    font-size: 1.7rem;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-container h4 {
+  font-size: 1.2rem;
+  margin-right: 20px;
+}
+
+.icon {
+  color: #15253d;
+  margin: 5px;
+}
+
+.icon:hover {
+  transform: scale(1.5);
+  transition-duration: 300ms;
+}
+
+.class-list button {
+  width: 40%;
+  margin: 5px auto;
+}
+
+.add-form button {
+  width: 40%;
+  margin: 10px auto;
+}
+
+.signin-signup button {
+  margin: 20px auto;
+  width: 25%;
+}
+
+.signin-signup input {
+  margin: 20px;
+}
+
+.signin-signup label {
+  margin: 5px;
+}
+
+.class-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+h2 {
+  margin: auto;
+}
+
+.class-card {
+  width: 30%;
+  margin: 20px;
+}
+
+.add-form {
+  width: 50%;
+  margin: auto;
+}
+
+.instructor-class {
+  width: 30%;
+  margin: auto;
+}
+
+.user-heading {
+  margin: 20px auto;
+  text-align: center;
+}
+
+.user-subheading {
+  margin: 10px auto;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+/* breakpoints */
 @media (max-width: 800px) {
   .header-container {
     flex-direction: column;

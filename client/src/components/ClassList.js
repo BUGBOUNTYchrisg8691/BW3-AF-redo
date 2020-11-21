@@ -25,11 +25,15 @@ export default function ClassList() {
   }, []);
 
   return (
-    <div>
-      {classes.length > 0 &&
-        classes.map((cls) => {
-          return <Class cls={cls} />;
-        })}
-    </div>
+    <>
+      <h2 className="user-heading">Available Classes</h2>
+      <h3 className="user-subheading">Enroll Now!</h3>
+      <div className="class-list">
+        {classes.length > 0 &&
+          classes.map((cls) => {
+            return <Class cls={cls} />;
+          })}
+      </div>
+    </>
   );
 }
