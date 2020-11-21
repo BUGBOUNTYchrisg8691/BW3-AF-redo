@@ -1,4 +1,8 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
+
+import login from "../utils/login";
+import register from "../utils/register";
 
 import Toggle from "./Toggle";
 
@@ -10,14 +14,30 @@ const initialFormVals = {
 
 export default function SignupForm() {
   const [formVals, setFormVals] = useState(initialFormVals);
+  const { push } = useHistory();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const newUser = {
       ...formVals,
       role: formVals.role ? 2 : 1,
     };
-    register(newUser);
+    await register(newUser)
+      .then((res) => {
+        console.log("Register Successful ==>> ", res);
+      })
+      .catch((err) => {
+        console.log("Register Failed ==>> ", err);
+      });
+    await login(formVals)
+      .then((res) => {
+        console.log("Login Successful ==>> ", res);
+        localStorage.setItem("user", JSON.stringify(res.data));
+        push("/dashboard");
+      })
+      .catch((err) => {
+        console.log("Login Failed ==>> ", err);
+      });
     setFormVals(initialFormVals);
   };
 

@@ -1,5 +1,7 @@
 import AxiosWithHeaders from "./AxiosWithHeaders";
 
+import { LOCAL } from "../constants";
+
 function register(newUser) {
   return AxiosWithHeaders()
     .post(`${LOCAL}/api/auth/register`, newUser)

@@ -1,18 +1,28 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 
-import login from "./utils/login";
+import login from "../utils/login";
 
 const initialFormVals = {
   username: "",
   password: "",
 };
 
-export default function SiginForm() {
+export default function SigninForm() {
   const [formVals, setFormVals] = useState(initialFormVals);
+  const { push } = useHistory();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    login(formVals);
+    login(formVals)
+      .then((res) => {
+        console.log("Login Successful ==>> ", res);
+        localStorage.setItem("user", JSON.stringify(res.data));
+        push("/dashboard");
+      })
+      .catch((err) => {
+        console.log("Login Failed ==>>", err);
+      });
     setFormVals(initialFormVals);
   };
 

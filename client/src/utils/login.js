@@ -1,6 +1,6 @@
 import AxiosWithHeaders from "./AxiosWithHeaders";
 
-import LOCAL from "../constants";
+import { LOCAL } from "../constants";
 
 function login(newUser) {
   return AxiosWithHeaders()
