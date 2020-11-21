@@ -6,6 +6,7 @@ import Header from "./components/Header";
 import SigninForm from "./components/SigninForm";
 import SignupForm from "./components/SignupForm";
 import Dashboard from "./components/Dashboard";
+import PrivateRoute from "./components/PrivateRoute";
 
 import "./styles/index.css";
 
@@ -24,9 +25,9 @@ function App() {
       <Header />
 
       <Switch>
-        <Route path="/dashboard/:id" component={Dashboard} />
+        <PrivateRoute path="/dashboard" component={Dashboard} />
         <Route path="/signup" component={SignupForm} />
-        <Route path="/" component={SigninForm} />
+        <Route exact path="/" component={SigninForm} />
       </Switch>
     </div>
   );

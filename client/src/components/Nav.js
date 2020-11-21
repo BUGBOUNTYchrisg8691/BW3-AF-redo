@@ -7,7 +7,7 @@ function Nav() {
       <NavLink to="/">Home</NavLink>
       <NavLink to="/signup">Sign Up</NavLink>
       <NavLink to="/dashboard">Dashboard</NavLink>
-      <NavLink to="/" onClick={() => localStorage.removeItem("token")}>
+      <NavLink to="/" onClick={() => localStorage.removeItem("user")}>
         Sign Out
       </NavLink>
     </div>

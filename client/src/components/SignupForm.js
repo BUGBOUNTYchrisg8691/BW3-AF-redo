@@ -16,20 +16,20 @@ export default function SignupForm() {
   const [formVals, setFormVals] = useState(initialFormVals);
   const { push } = useHistory();
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     const newUser = {
       ...formVals,
       role: formVals.role ? 2 : 1,
     };
-    await register(newUser)
+    register(newUser)
       .then((res) => {
         console.log("Register Successful ==>> ", res);
       })
       .catch((err) => {
         console.log("Register Failed ==>> ", err);
       });
-    await login(formVals)
+    login(formVals)
       .then((res) => {
         console.log("Login Successful ==>> ", res);
         localStorage.setItem("user", JSON.stringify(res.data));
