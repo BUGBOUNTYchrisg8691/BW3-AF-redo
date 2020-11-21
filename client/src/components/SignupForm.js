@@ -56,29 +56,32 @@ export default function SignupForm() {
     });
   };
   return (
-    <form onSubmit={handleSubmit}>
-      <label>Username</label>
-      <input
-        type="text"
-        name="username"
-        value={formVals.username}
-        onChange={handleChange}
-      />
-      <label>Password</label>
-      <input
-        type="password"
-        name="password"
-        value={formVals.password}
-        onChange={handleChange}
-      />
-      <label>Are you an Instructor?</label>
-      <Toggle
-        id="role"
-        name="role"
-        checked={formVals.role}
-        onChange={handleRoleChange}
-      />
-      <button>Sign Up</button>
-    </form>
+    <div className="signin-signup signup">
+      <h2>Sign Up Today!</h2>
+      <form onSubmit={handleSubmit}>
+        <label>Username</label>
+        <input
+          type="text"
+          name="username"
+          value={formVals.username}
+          onChange={handleChange}
+        />
+        <label>Password</label>
+        <input
+          type="password"
+          name="password"
+          value={formVals.password}
+          onChange={handleChange}
+        />
+        <label>Are you an Instructor?</label>
+        <Toggle
+          id="role"
+          name="role"
+          checked={formVals.role}
+          onChange={handleRoleChange}
+        />
+        <button>Sign Up</button>
+      </form>
+    </div>
   );
 }

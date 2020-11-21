@@ -47,7 +47,7 @@ export default function Class({ cls }) {
   // };
 
   return (
-    <div>
+    <div className="class-card">
       <form>
         {/* {attendees.includes(
           JSON.parse(localStorage.getItem("user")).message.split(" ")[

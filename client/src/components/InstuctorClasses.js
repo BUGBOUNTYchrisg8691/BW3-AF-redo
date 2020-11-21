@@ -28,11 +28,14 @@ export default function InstuctorClasses() {
   }, []);
 
   return (
-    <div>
-      {classes.length > 0 &&
-        classes.map((cls) => {
-          return <InstructorClass cls={cls} />;
-        })}
-    </div>
+    <>
+      <h2>Your Classes</h2>
+      <div className="class-list">
+        {classes.length > 0 &&
+          classes.map((cls) => {
+            return <InstructorClass cls={cls} />;
+          })}
+      </div>
+    </>
   );
 }

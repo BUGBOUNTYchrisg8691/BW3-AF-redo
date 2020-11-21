@@ -34,22 +34,25 @@ export default function SigninForm() {
     });
   };
   return (
-    <form onSubmit={handleSubmit}>
-      <label>Username</label>
-      <input
-        type="text"
-        name="username"
-        value={formVals.username}
-        onChange={handleChange}
-      />
-      <label>Password</label>
-      <input
-        type="password"
-        name="password"
-        value={formVals.password}
-        onChange={handleChange}
-      />
-      <button>Sign In</button>
-    </form>
+    <div className="signin-signup signin">
+      <h2>Please Sign In</h2>
+      <form onSubmit={handleSubmit}>
+        <label>Username</label>
+        <input
+          type="text"
+          name="username"
+          value={formVals.username}
+          onChange={handleChange}
+        />
+        <label>Password</label>
+        <input
+          type="password"
+          name="password"
+          value={formVals.password}
+          onChange={handleChange}
+        />
+        <button>Sign In</button>
+      </form>
+    </div>
   );
 }
