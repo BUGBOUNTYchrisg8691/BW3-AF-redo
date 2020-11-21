@@ -72,7 +72,7 @@ export default function Class({ cls }) {
         <label>Type</label>
         <h5>{cls.type}</h5>
         <label>Location</label>
-        <h4>{cls.location}</h4>
+        <p>{cls.location}</p>
         <label>Start Time</label>
         <p>{cls.start_time}</p>
         <label>End Time</label>
